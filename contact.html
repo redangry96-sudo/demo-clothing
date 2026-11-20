@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contact Us | Sitara Clothing, Lahore</title>
+<meta name="description" content="Call, email or WhatsApp Sitara Clothing in Lahore. We reply to every order question within one working day.">
+<meta property="og:title" content="Contact Us | Sitara Clothing, Lahore">
+<meta property="og:description" content="Call, email or WhatsApp Sitara Clothing in Lahore. We reply to every order question within one working day.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%232F5D50'/%3E%3Ctext x='16' y='23' font-size='20' font-weight='700' text-anchor='middle' fill='white' font-family='Arial'%3ES%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script src="script.js" defer></script>
+</head>
+<body>
+<!-- Header, footer, mobile menu and WhatsApp button are added by script.js -->
+<main id="main"><div class="wrap">
+  <div class="page-head"><h1 class="heading-3">We are one message away</h1><p class="body-3 muted">WhatsApp is the fastest way to reach us. You can also call, email or send the form.</p></div>
+
+  <section style="padding-top:var(--s16)"><div class="two">
+    <div style="display:grid;gap:16px;align-content:start">
+      <a class="btn btn-wa btn-lg button-md" id="waBtn" target="_blank" rel="noopener">Order or ask on WhatsApp</a>
+      <div class="info body-6">
+        <div><span data-ico="phone"></span><span><b class="title-4">Phone</b><br><a id="cPhone"></a></span></div>
+        <div><span data-ico="mail"></span><span><b class="title-4">Email</b><br><a id="cMail"></a></span></div>
+        <div><span data-ico="pin"></span><span><b class="title-4">Visit us</b><br><span id="cAddr"></span><br><span class="muted" id="cHours"></span></span></div>
+      </div>
+      <!-- Map placeholder: paste a Google Maps embed iframe here -->
+      <div class="map body-6 muted">Map placeholder. Embed your Google Maps location here.</div>
+    </div>
+
+    <div>
+      <form class="form" id="contactForm" novalidate>
+        <h2 class="heading-5">Send us a message</h2>
+        <div class="field"><label class="title-4" for="name">Your name</label><input id="name" name="name" autocomplete="name"><small class="caption-4"></small></div>
+        <div class="field"><label class="title-4" for="phone">Mobile number</label><input id="phone" name="phone" type="tel" inputmode="tel" placeholder="0300 1234567" autocomplete="tel"><small class="caption-4"></small></div>
+        <div class="field"><label class="title-4" for="email">Email (optional)</label><input id="email" name="email" type="email" autocomplete="email"><small class="caption-4"></small></div>
+        <div class="field"><label class="title-4" for="message">How can we help?</label><textarea id="message" name="message"></textarea><small class="caption-4"></small></div>
+        <button class="btn btn-primary btn-lg button-md" type="submit">Send message</button>
+      </form>
+      <div class="ok body-6" id="sent" hidden>Message received. We will reply by phone or WhatsApp within one working day.</div>
+    </div>
+  </div></section>
+
+  <section id="faq"><h2 class="heading-5" style="margin-bottom:24px">Questions we hear often</h2>
+    <details><summary>Can I pay when the parcel arrives?</summary><p class="body-6 muted">Yes. Cash on delivery is available across Pakistan. You can check the parcel before paying the rider.</p></details>
+    <details><summary>How long does delivery take?</summary><p class="body-6 muted">Usually two to four working days. Delivery is free on orders above ₨3,000, otherwise it is ₨200.</p></details>
+    <details><summary>What if the size does not fit?</summary><p class="body-6 muted">Message us on WhatsApp within seven days. We exchange unworn pieces with tags attached.</p></details>
+    <details><summary>Are the clothes the same as the photos?</summary><p class="body-6 muted">Yes. If a piece looks different from what you ordered, we replace it or return your money.</p></details>
+  </section>
+</div></main>
+<script>
+/* Fill the contact details from CONFIG in script.js (runs after it loads) */
+window.addEventListener('DOMContentLoaded', () => {
+  $('#waBtn').href = wa('Assalam o Alaikum, I have a question about my order.');
+  $('#cPhone').textContent = CONFIG.phone; $('#cPhone').href = 'tel:' + CONFIG.phone.replace(/\s/g, '');
+  $('#cMail').textContent = CONFIG.email; $('#cMail').href = 'mailto:' + CONFIG.email;
+  $('#cAddr').textContent = CONFIG.address; $('#cHours').textContent = CONFIG.hours;
+  $$('[data-ico]').forEach(el => el.innerHTML = ico(el.dataset.ico));
+});
+</script>
+</body></html>
